@@ -36,9 +36,9 @@ Publius was writing persuasion, not a neutral textbook. He wanted to win a vote,
 
 The papers also come from a society that denied basic rights to most of its people. Women could not vote. Enlightened leaders, including Madison, owned enslaved people. Native nations appear mostly as threats. Where the papers deal with slavery, as in No. 42 and No. 54, our commentary says so plainly. Understanding these blind spots is part of understanding the founding.
 
-## Which papers are done?
+## Is every paper finished?
 
-We are adapting the papers in order of importance, starting with the ones most often read, taught, and cited. The [table of contents](/contents/) shows which papers have a full plain-language version. Every paper already has a plain-language summary and the complete original text.
+All 85 papers have a full plain-language version, a summary, and the complete original text. We wrote them in order of importance, starting with the essays most often read, taught, and cited. Like any interpretation, they can always be improved, so corrections are welcome.
 
 ## Sources
 

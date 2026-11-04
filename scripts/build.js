@@ -482,8 +482,8 @@ function renderHome() {
         <h2>Progress</h2>
         <p class="big-num">${adaptedCount}<span>/85</span></p>
         <div class="progress" role="progressbar" aria-valuenow="${adaptedCount}" aria-valuemin="0" aria-valuemax="85" aria-label="Papers adapted"><div style="width:${pct}%"></div></div>
-        <p>papers have a full plain-language version. The most important papers come first. Every paper already has a summary and the complete original text.</p>
-        <p><a href="/contents/?ready=1">Browse finished papers →</a></p>
+        <p>${adaptedCount === 85 ? 'All 85 papers have a full plain-language version, a summary, commentary, and the complete original text side by side.' : 'papers have a full plain-language version. The most important papers come first. Every paper already has a summary and the complete original text.'}</p>
+        <p><a href="/contents/">Browse all papers →</a></p>
       </div>
     </div>
   </section>
