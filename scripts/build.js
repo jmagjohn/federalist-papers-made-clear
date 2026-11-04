@@ -638,10 +638,22 @@ function collectGlossary() {
     const boxes = [...p.adapted.front, ...p.adapted.sections.flatMap((s) => s.blocks), ...p.adapted.back].filter((b) => b.type === 'box' && b.kind === 'vocab');
     for (const b of boxes)
       for (const t of b.terms) {
-        const key = t.term.toLowerCase();
+        // Merge simple variants: case, plurals, "the", and a trailing "(...)" qualifier.
+        const key = t.term
+          .toLowerCase()
+          .replace(/\s*\(.*?\)\s*/g, ' ')
+          .replace(/^the /, '')
+          .trim()
+          .replace(/ies$/, 'y')
+          .replace(/s$/, '');
         if (!map.has(key)) map.set(key, { term: t.term, def: t.def, papers: [] });
         const e = map.get(key);
-        if (!e.papers.includes(p.n)) e.papers.push(p.n);
+        // Prefer the singular, unqualified spelling as the headword.
+        if (t.term.length < e.term.length && !/\(/.test(t.term)) {
+          e.term = t.term;
+          e.def = t.def;
+        }
+        if (!e.papers.some((x) => x.n === p.n)) e.papers.push({ n: p.n, term: t.term });
       }
   }
   return [...map.values()].sort((a, b) => a.term.localeCompare(b.term, 'en', { sensitivity: 'base' }));
@@ -665,8 +677,8 @@ function renderGlossary(terms) {
           .filter((t) => t.term[0].toUpperCase() === l)
           .map(
             (t) => `<div class="gloss-item" id="${slugify(t.term)}" data-text="${esc((t.term + ' ' + plain(t.def)).toLowerCase())}"><dt>${esc(t.term)}</dt><dd>${inline(t.def)}<span class="gloss-papers">See: ${t.papers
-              .sort((a, b) => a - b)
-              .map((n) => `<a href="${paperUrl(n)}#term-${slugify(t.term)}">No. ${n}</a>`)
+              .sort((a, b) => a.n - b.n)
+              .map((x) => `<a href="${paperUrl(x.n)}#term-${slugify(x.term)}">No. ${x.n}</a>`)
               .join(', ')}</span></dd></div>`
           )
           .join('')}</dl></section>`
