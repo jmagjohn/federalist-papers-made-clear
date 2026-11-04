@@ -845,6 +845,24 @@ function main() {
   if (SITE_URL)
     write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => `  <url><loc>${SITE_URL}${u}</loc></url>`).join('\n')}\n</urlset>\n`);
 
+  // Check internal links in every generated page.
+  const known = new Set(urls.map((u) => u.split('#')[0]));
+  const broken = new Map();
+  const walk = (dir) => {
+    for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+      const f = path.join(dir, e.name);
+      if (e.isDirectory()) walk(f);
+      else if (e.name.endsWith('.html'))
+        for (const m of fs.readFileSync(f, 'utf8').matchAll(/href="(\/[^"#?]*)/g)) {
+          const href = m[1];
+          if (/\.(css|js|svg|json|xml|txt)$/.test(href) || known.has(href)) continue;
+          broken.set(href, path.relative(DIST, f));
+        }
+    }
+  };
+  walk(DIST);
+  for (const [href, from] of broken) console.warn(`Warning: broken link ${href} (e.g. in ${from})`);
+
   console.log(`Built ${urls.length} pages into dist/ — ${adaptedCount}/85 papers adapted, ${terms.length} glossary terms.`);
 }
 

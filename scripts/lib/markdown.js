@@ -16,7 +16,7 @@ const escapeHtml = (s) =>
 
 function inline(text) {
   let s = escapeHtml(text);
-  s = s.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (m, label, href) => `<a href="${href}">${label}</a>`);
+  s = s.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (m, label, href) => `<a href="${href.replace(/^\/papers\/0+(\d)/, '/papers/$1')}">${label}</a>`);
   s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
   s = s.replace(/(^|[^*\w])\*([^*\n]+)\*(?!\*)/g, '$1<em>$2</em>');
   s = s.replace(/ -- /g, ' &mdash; ');
