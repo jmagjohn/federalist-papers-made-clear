@@ -31,7 +31,7 @@ Requires Node 18 or newer. No `npm install` needed.
 ```bash
 npm run dev      # build and preview at http://localhost:3000
 npm run build    # build into dist/
-npm run check    # report the reading level of every plain-language paper
+npm run check    # report reading level and paragraph coverage of every plain-language paper
 ```
 
 ## How the content works
@@ -42,7 +42,7 @@ content/
   taxonomy.json       # authors, the 17 parts of the series, and topics
   reading-path.json   # the "Start here" reading order
   originals/NN.json   # original text, one paragraph per array item (from Project Gutenberg #1404)
-  papers/NN.md        # plain-language versions
+  papers/NN.md        # plain-language versions (see docs/ADAPTING.md for the style guide)
   pages/*.md          # other pages (About)
 scripts/
   build.js            # static site generator (no dependencies)

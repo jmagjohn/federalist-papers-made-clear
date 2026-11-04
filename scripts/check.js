@@ -17,10 +17,18 @@ for (const f of files) {
     .flatMap((b) => b.blocks)
     .map((b) => plain(b.text || (b.items || []).join('. ')))
     .join(' ');
+  const n = Number(p.meta.n || f.replace(/\.md$/, ''));
+  const total = require(path.join(__dirname, '..', 'content', 'originals', String(n).padStart(2, '0') + '.json')).paragraphs.length;
+  const seen = p.sections.flatMap((s) => s.orig);
+  const missing = [];
+  for (let i = 1; i <= total; i++) if (!seen.includes(i)) missing.push(i);
+  const dupes = seen.filter((x, i) => seen.indexOf(x) !== i);
+  const coverage = missing.length || dupes.length ? `  <-- paragraphs missing [${missing}] duplicated [${dupes}]` : '';
+  if (coverage) bad++;
   const g = gradeLevel(text);
   const gc = gradeLevel(all);
   const flag = g < 7.5 || g > 10.5 ? '  <-- outside target' : '';
   if (flag) bad++;
-  console.log(`${f}  text: grade ${g}  commentary: grade ${gc}  sections: ${p.sections.length}${flag}`);
+  console.log(`${f}  text: grade ${g}  commentary: grade ${gc}  sections: ${p.sections.length}${flag}${coverage}`);
 }
-console.log(`\n${files.length} papers checked, ${bad} outside the grade 8-10 target.`);
+console.log(`\n${files.length} papers checked, ${bad} with problems (reading level outside grade 8-10, or original paragraphs not covered).`);

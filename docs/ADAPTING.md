@@ -10,7 +10,7 @@ This guide is for anyone (human or AI) writing a plain-language version of a pap
 3. Write `content/papers/NN.md` (two-digit number, e.g. `06.md`, `33.md`).
 4. Build and check:
    `node scripts/build.js && node scripts/check.js | grep NN`
-   The build will fail if an `{orig=...}` paragraph number doesn't exist.
+   The build will fail if an `{orig=...}` paragraph number doesn't exist, and `check.js` flags any original paragraph that is missing or covered twice.
 5. If the text grade is above 10.5 or below 7.5, run `node scripts/hard.js NN 12` to see the hardest sentences and simplify them. Re-check until the **text** grade is between 8.0 and 10.5. Aim for about 9–10.
 
 ## File format
