@@ -6,7 +6,7 @@
 const fs = require('fs');
 const path = require('path');
 const { parsePaper, parseBlocks, inline, plain, escapeHtml: esc, slugify } = require('./lib/markdown');
-const { gradeLevel } = require('./lib/readability');
+const { gradeLevel, joinBlocks } = require('./lib/readability');
 
 const ROOT = path.join(__dirname, '..');
 const CONTENT = path.join(ROOT, 'content');
@@ -58,10 +58,11 @@ const papers = catalog.map((c) => {
   p.origWords = wordCount(origText);
   p.origGrade = gradeLevel(origText);
   if (adapted) {
-    const mainText = adapted.sections
-      .flatMap((s) => s.blocks.filter((b) => b.type !== 'box' && b.type !== 'h3' && b.type !== 'bq'))
-      .map((b) => plain(b.text || b.items.join('. ')))
-      .join(' ');
+    const mainText = joinBlocks(
+      adapted.sections
+        .flatMap((s) => s.blocks.filter((b) => b.type !== 'box' && b.type !== 'h3' && b.type !== 'bq'))
+        .map((b) => plain(b.text || b.items.join('. ')))
+    );
     p.plainGrade = gradeLevel(mainText);
     p.plainWords = wordCount(mainText);
     const allText = [

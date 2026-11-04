@@ -36,4 +36,9 @@ function gradeLevel(text) {
   return Math.round(grade * 10) / 10;
 }
 
-module.exports = { gradeLevel, stats, syllables, stripQuotes };
+/** Join text blocks so each one counts as ending a sentence. */
+function joinBlocks(texts) {
+  return texts.map((t) => t.trim().replace(/[:;,]$/, '')).map((t) => (/[.!?]["'\u201d)]?$/.test(t) ? t : t + '.')).join(' ');
+}
+
+module.exports = { gradeLevel, stats, syllables, stripQuotes, joinBlocks };

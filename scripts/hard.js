@@ -3,11 +3,11 @@
 const fs = require('fs');
 const path = require('path');
 const { parsePaper, plain } = require('./lib/markdown');
-const { syllables, stripQuotes } = require('./lib/readability');
+const { syllables, stripQuotes, joinBlocks } = require('./lib/readability');
 const n = String(process.argv[2]).padStart(2, '0');
 const count = Number(process.argv[3] || 12);
 const p = parsePaper(fs.readFileSync(path.join(__dirname, '..', 'content', 'papers', n + '.md'), 'utf8'));
-const text = p.sections.flatMap((s) => s.blocks.filter((b) => ['p', 'ul', 'ol'].includes(b.type))).map((b) => plain(b.text || b.items.join('. '))).join(' ');
+const text = joinBlocks(p.sections.flatMap((s) => s.blocks.filter((b) => ['p', 'ul', 'ol'].includes(b.type))).map((b) => plain(b.text || b.items.join('. '))));
 const sents = stripQuotes(text).split(/(?<=[.!?])\s+(?=[A-Z"])/);
 const scored = sents.map((s) => {
   const w = s.match(/[A-Za-z][A-Za-z'\-]*/g) || [];
