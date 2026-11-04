@@ -59,7 +59,7 @@ const papers = catalog.map((c) => {
   p.origGrade = gradeLevel(origText);
   if (adapted) {
     const mainText = adapted.sections
-      .flatMap((s) => s.blocks.filter((b) => b.type !== 'box' && b.type !== 'h3'))
+      .flatMap((s) => s.blocks.filter((b) => b.type !== 'box' && b.type !== 'h3' && b.type !== 'bq'))
       .map((b) => plain(b.text || b.items.join('. ')))
       .join(' ');
     p.plainGrade = gradeLevel(mainText);

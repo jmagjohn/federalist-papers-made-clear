@@ -24,11 +24,16 @@ function stats(text) {
   return { sentences: Math.max(1, sentences.length), words: words.length, syllables: syl };
 }
 
+/** Leave out long direct quotations of 18th-century text (8+ words in quotes). */
+function stripQuotes(text) {
+  return text.replace(/["\u201c]([^"\u201d]+)["\u201d]/g, (m, q) => (q.split(/\s+/).length >= 8 ? ' ' : m));
+}
+
 function gradeLevel(text) {
-  const s = stats(text);
+  const s = stats(stripQuotes(text));
   if (!s.words) return null;
   const grade = 0.39 * (s.words / s.sentences) + 11.8 * (s.syllables / s.words) - 15.59;
   return Math.round(grade * 10) / 10;
 }
 
-module.exports = { gradeLevel, stats, syllables };
+module.exports = { gradeLevel, stats, syllables, stripQuotes };

@@ -23,7 +23,7 @@ That means most Americans never read the actual arguments behind their own gover
 
 Each plain-language version follows a few rules:
 
-- **Grade 8–10 reading level.** That's about the level of a good newspaper. We check every paper with the Flesch-Kincaid formula, and each paper's page shows its estimated grade. We don't go lower on purpose. Simplifying further would mean cutting the qualifications, examples, and reasoning that make the arguments worth reading.
+- **Grade 8–10 reading level.** That's about the level of a good newspaper. We check every paper with the Flesch-Kincaid formula, and each paper's page shows its estimated grade. (Commentary is checked too. Long word-for-word quotations from the 1780s are left out of the measurement.) We don't go lower on purpose. Simplifying further would mean cutting the qualifications, examples, and reasoning that make the arguments worth reading.
 - **Follow the original, step by step.** We keep Publius's order, his main examples, and his voice ("I," "we," "you"). We break up long sentences, replace old words with modern ones, and explain references a modern reader wouldn't know. We don't skip arguments because they're difficult.
 - **Keep the text and the commentary separate.** The main text is our best effort to say what Publius said. Everything in a labeled box, such as *Commentary*, *Background*, or *Why it still matters*, is our explanation, not his. Commentary points out when the authors were wrong, when their arguments were controversial, and how things turned out.
 - **Always show the original.** Every section links to the exact paragraphs it covers. Use **Side by side** to read both at once, and check us whenever a passage matters to you.
