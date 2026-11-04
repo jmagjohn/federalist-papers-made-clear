@@ -2,6 +2,8 @@
 
 The Federalist Papers rewritten in clear, modern English at a **grade 8–10 reading level**, with commentary, vocabulary, a glossary, full-text search, and the original 1787–88 text side by side.
 
+**Live site: https://federalist-papers-made-clear.vercel.app**
+
 The goal is simple: make the actual arguments behind the U.S. Constitution readable for everyone, without dumbing them down.
 
 ## Features
