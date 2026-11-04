@@ -1,0 +1,23 @@
+{
+  "essentials": [
+    { "n": 1, "why": "Start where Publius started. Hamilton explains what is at stake and why the whole world is watching." },
+    { "n": 10, "why": "The most famous essay. Madison's theory of factions, and why a big republic protects rights better than a small one." },
+    { "n": 51, "why": "The heart of checks and balances: 'If men were angels, no government would be necessary.'" },
+    { "n": 39, "why": "What makes a government a republic, and how the Constitution mixes national and state power." },
+    { "n": 70, "why": "Why the country needs one energetic president, not a committee." },
+    { "n": 78, "why": "Why judges serve for life and how courts can strike down unconstitutional laws." },
+    { "n": 84, "why": "The argument against a bill of rights, and why it is worth understanding even though it lost." }
+  ],
+  "next": [
+    { "n": 15, "why": "What was so wrong with the Articles of Confederation?" },
+    { "n": 23, "why": "Why national defense requires real power." },
+    { "n": 9, "why": "Hamilton's take on faction, and the new 'science of politics.'" },
+    { "n": 14, "why": "Madison explains why a republic can work in a big country." },
+    { "n": 45, "why": "Why the states would stay powerful: national powers are 'few and defined.'" },
+    { "n": 47, "why": "What separation of powers actually means." },
+    { "n": 62, "why": "Why we have a Senate, and why unstable laws hurt ordinary people." },
+    { "n": 68, "why": "The case for the Electoral College." },
+    { "n": 37, "why": "Why writing the Constitution was so hard." },
+    { "n": 85, "why": "Hamilton's closing argument." }
+  ]
+}

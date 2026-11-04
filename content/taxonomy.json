@@ -1,0 +1,58 @@
+{
+  "authors": {
+    "hamilton": {
+      "name": "Alexander Hamilton",
+      "short": "Hamilton",
+      "bio": "Hamilton was a New York lawyer who had served as George Washington's aide during the Revolutionary War. He came up with the idea for The Federalist and wrote 51 of the 85 essays, more than Madison and Jay combined. He later became the first Secretary of the Treasury. His essays focus most on the weakness of the old government, national defense, taxes, the presidency, and the courts."
+    },
+    "madison": {
+      "name": "James Madison",
+      "short": "Madison",
+      "bio": "Madison was a Virginia politician who did more than anyone to shape the Constitution at the Philadelphia Convention. He wrote 29 essays, including the two most famous ones, Nos. 10 and 51. He later wrote the Bill of Rights and became the fourth president. His essays focus on political theory: factions, the size of a republic, federalism, and checks and balances."
+    },
+    "jay": {
+      "name": "John Jay",
+      "short": "Jay",
+      "bio": "Jay was a New York lawyer and diplomat who helped negotiate the treaty that ended the Revolutionary War. He planned to write more essays but fell ill after writing Nos. 2 through 5. He returned to write No. 64 on treaties. He later became the first Chief Justice of the United States."
+    },
+    "madison-hamilton": {
+      "name": "James Madison, with Alexander Hamilton",
+      "short": "Madison & Hamilton",
+      "bio": "Nos. 18, 19, and 20 survey the history of earlier confederacies. Madison wrote them using research notes, and Hamilton added material of his own."
+    }
+  },
+  "parts": [
+    { "slug": "introduction", "name": "Introduction", "range": [1, 1], "blurb": "Hamilton explains what is at stake and lays out the plan for the whole series." },
+    { "slug": "foreign-dangers", "name": "Dangers from Foreign Nations", "range": [2, 5], "blurb": "John Jay argues that a united America is much safer from foreign wars and meddling than a divided one." },
+    { "slug": "conflict-between-states", "name": "Dangers of Conflict Between the States", "range": [6, 8], "blurb": "Hamilton warns that if the states split apart, they would end up fighting each other, and liberty would suffer." },
+    { "slug": "faction-and-insurrection", "name": "Union vs. Faction and Rebellion", "range": [9, 10], "blurb": "Why a large, united republic is the best cure for political conflict and rebellion. Includes the famous No. 10." },
+    { "slug": "commerce-and-revenue", "name": "Trade, Money, and the Benefits of Union", "range": [11, 13], "blurb": "How union helps American trade, makes taxes easier to collect, and saves money." },
+    { "slug": "size-of-the-republic", "name": "Can a Republic Be This Big?", "range": [14, 14], "blurb": "Madison answers the claim that a republic cannot work across a large territory." },
+    { "slug": "failures-of-the-articles", "name": "Why the Articles of Confederation Failed", "range": [15, 22], "blurb": "A diagnosis of the old government's problems, with lessons from earlier confederacies in history." },
+    { "slug": "common-defense", "name": "National Defense", "range": [23, 29], "blurb": "Why the national government needs real power to raise armies and provide for defense, and why that power need not threaten liberty." },
+    { "slug": "taxation", "name": "The Power to Tax", "range": [30, 36], "blurb": "Why the national government needs its own power to tax, and how it will share that power with the states." },
+    { "slug": "convention-and-principles", "name": "The Convention and Republican Principles", "range": [37, 40], "blurb": "Madison explains how hard the Convention's job was, defines a republic, and defends the Convention's authority." },
+    { "slug": "federal-powers", "name": "The Powers of the National Government", "range": [41, 46], "blurb": "A tour of the powers the Constitution gives the national government, and why the states will remain strong." },
+    { "slug": "separation-of-powers", "name": "Separation of Powers and Checks and Balances", "range": [47, 51], "blurb": "How the Constitution divides power and lets each branch check the others. Includes the famous No. 51." },
+    { "slug": "house", "name": "The House of Representatives", "range": [52, 61], "blurb": "How the House is elected, how big it is, and why it will stay close to the people." },
+    { "slug": "senate", "name": "The Senate", "range": [62, 66], "blurb": "Why the Senate is smaller, serves longer terms, and shares powers like treaties and impeachment trials." },
+    { "slug": "presidency", "name": "The Presidency", "range": [67, 77], "blurb": "How the president is chosen, why one person should hold the office, and what the president can and cannot do." },
+    { "slug": "judiciary", "name": "The Courts", "range": [78, 83], "blurb": "Why federal judges serve for life, how courts can strike down unconstitutional laws, and what cases federal courts hear." },
+    { "slug": "final-arguments", "name": "Final Arguments", "range": [84, 85], "blurb": "Hamilton responds to the call for a bill of rights and makes his closing case." }
+  ],
+  "themes": [
+    { "slug": "checks-and-balances", "name": "Checks and Balances", "blurb": "How power is divided so that no one person or group can take over." },
+    { "slug": "federalism", "name": "States vs. National Government", "blurb": "How power is split between the states and the national government, and who wins if they clash." },
+    { "slug": "factions", "name": "Factions and Political Parties", "blurb": "Groups that put their own interests ahead of others' rights or the public good, and how to control them." },
+    { "slug": "human-nature", "name": "Human Nature", "blurb": "What the authors believed about people's ambition, self-interest, reason, and virtue, and how that shaped their designs." },
+    { "slug": "rights-and-liberty", "name": "Rights and Liberty", "blurb": "Protecting individual freedom, including the debate over a bill of rights." },
+    { "slug": "defense", "name": "War, Armies, and Security", "blurb": "Armies, navies, militias, and the dangers of war at home and abroad." },
+    { "slug": "money-and-taxes", "name": "Money, Taxes, and Trade", "blurb": "Taxes, debt, commerce, and the economic case for union." },
+    { "slug": "elections", "name": "Elections and Representation", "blurb": "Who votes, who serves, how long terms last, and how representatives stay accountable." },
+    { "slug": "foreign-affairs", "name": "Foreign Affairs", "blurb": "Treaties, foreign threats, foreign influence, and America's place in the world." },
+    { "slug": "history-lessons", "name": "Lessons from History", "blurb": "What ancient Greece, Rome, Europe, and colonial America taught the founders." },
+    { "slug": "courts-and-law", "name": "Courts and the Rule of Law", "blurb": "Judges, juries, the Constitution as supreme law, and judicial review." },
+    { "slug": "executive-power", "name": "Presidential Power", "blurb": "The president's powers, limits, term, and selection." },
+    { "slug": "slavery", "name": "Slavery and the Constitution", "blurb": "The places where The Federalist deals with slavery, a moral failure the Constitution compromised with rather than ended." }
+  ]
+}

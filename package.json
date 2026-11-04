@@ -1,0 +1,13 @@
+{
+  "name": "federalist-papers-made-clear",
+  "version": "1.0.0",
+  "private": true,
+  "description": "The Federalist Papers in plain English at a grade 8-10 reading level, with commentary, search, and the original text side by side.",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "dev": "node scripts/build.js && node scripts/serve.js",
+    "check": "node scripts/check.js"
+  },
+  "engines": { "node": ">=18" },
+  "license": "MIT"
+}
