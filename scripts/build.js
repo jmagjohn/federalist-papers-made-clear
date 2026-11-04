@@ -772,7 +772,7 @@ function copyDir(src, dest) {
 }
 
 function main() {
-  fs.rmSync(DIST, { recursive: true, force: true });
+  fs.rmSync(DIST, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   fs.mkdirSync(DIST, { recursive: true });
   copyDir(path.join(ROOT, 'site'), DIST);
 
