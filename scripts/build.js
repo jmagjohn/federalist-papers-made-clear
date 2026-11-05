@@ -216,7 +216,7 @@ function layout({ title, description, body, pagePath, bodyClass = '' }) {
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>${esc(fullTitle)}</title>
 <meta name="description" content="${esc(desc)}">
 ${canonical}
@@ -225,6 +225,12 @@ ${canonical}
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#0a3161">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Federalist">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&family=Inter:wght@400;500;600;700&display=swap">
@@ -736,6 +742,55 @@ function renderPage(file, pagePath) {
   return layout({ title: parsed.meta.title, description: parsed.meta.description, body, pagePath });
 }
 
+function renderOffline() {
+  const titles = Object.fromEntries(papers.map((p) => [p.n, p.title]));
+  const body = `<div class="page">
+    <header class="page-head">
+      <p class="kicker">No connection</p>
+      <h1>You're offline</h1>
+      <p class="lede">This page isn't saved on your device yet. Papers you have already opened stay available without a connection.</p>
+    </header>
+    <p><button type="button" class="btn" onclick="location.reload()">Try again</button></p>
+    <section id="saved" hidden>
+      <h2>Saved on this device</h2>
+      <ul class="saved-list" id="saved-list"></ul>
+    </section>
+    <script>
+    (function () {
+      var titles = ${JSON.stringify(titles)};
+      if (!('caches' in window)) return;
+      caches.keys().then(function (keys) {
+        var found = {};
+        return Promise.all(keys.map(function (k) {
+          return caches.open(k).then(function (c) {
+            return c.keys().then(function (reqs) {
+              reqs.forEach(function (r) {
+                var m = new URL(r.url).pathname.match(/^\\/papers\\/(\\d+)\\/$/);
+                if (m) found[m[1]] = true;
+              });
+            });
+          });
+        })).then(function () {
+          var nums = Object.keys(found).map(Number).sort(function (a, b) { return a - b; });
+          if (!nums.length) return;
+          var list = document.getElementById('saved-list');
+          nums.forEach(function (n) {
+            var li = document.createElement('li');
+            var a = document.createElement('a');
+            a.href = '/papers/' + n + '/';
+            a.textContent = 'No. ' + n + ': ' + titles[n];
+            li.appendChild(a);
+            list.appendChild(li);
+          });
+          document.getElementById('saved').hidden = false;
+        });
+      }).catch(function () {});
+    })();
+    </script>
+  </div>`;
+  return layout({ title: 'Offline', body, pagePath: '/offline/' }).replace('<meta charset="utf-8">', '<meta charset="utf-8">\n<meta name="robots" content="noindex">');
+}
+
 function render404() {
   const body = `<div class="page"><header class="page-head"><p class="kicker">404</p><h1>Page not found</h1><p class="lede">That page doesn't exist. Try the <a href="/contents/">table of contents</a> or <a href="/search/">search</a>.</p></header></div>`;
   return layout({ title: 'Not found', body, pagePath: '/404' });
@@ -802,6 +857,18 @@ function main() {
   write('topics/index.html', renderTopicsIndex());
   write('search/index.html', renderSearch());
   write('404.html', render404());
+  write('offline/index.html', renderOffline());
+
+  // Service worker: stamp it with this build's id and the list of files to save at install.
+  const precache = [
+    '/', '/start/', '/contents/', '/search/', '/glossary/', '/topics/', '/about/', '/offline/',
+    `/styles.css?v=${BUILD_ID}`, `/app.js?v=${BUILD_ID}`,
+    '/favicon.svg', '/manifest.webmanifest', '/apple-touch-icon.png', '/icons/icon-192.png',
+  ];
+  write(
+    'sw.js',
+    fs.readFileSync(path.join(ROOT, 'site', 'sw.js'), 'utf8').replace(/__BUILD_ID__/g, BUILD_ID).replace(/__PRECACHE__/g, JSON.stringify(precache, null, 2))
+  );
   urls.push('/start/', '/contents/', '/topics/', '/search/', '/glossary/');
 
   for (const t of taxonomy.themes) {
@@ -870,7 +937,7 @@ function main() {
       else if (e.name.endsWith('.html'))
         for (const m of fs.readFileSync(f, 'utf8').matchAll(/href="(\/[^"#?]*)/g)) {
           const href = m[1];
-          if (/\.(css|js|svg|json|xml|txt)$/.test(href) || known.has(href)) continue;
+          if (/\.(css|js|svg|json|xml|txt|png|webmanifest)$/.test(href) || known.has(href)) continue;
           broken.set(href, path.relative(DIST, f));
         }
     }

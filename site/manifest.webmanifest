@@ -1,0 +1,25 @@
+{
+  "id": "/",
+  "name": "The Federalist, Made Clear",
+  "short_name": "Federalist",
+  "description": "The Federalist Papers in plain English at a grade 8-10 reading level, with commentary, search, and the original text side by side.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#ecdcb6",
+  "theme_color": "#0a3161",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["education", "books", "reference"],
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Start Here", "short_name": "Start", "url": "/start/", "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" }] },
+    { "name": "Table of Contents", "short_name": "Contents", "url": "/contents/", "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" }] },
+    { "name": "Search the Papers", "short_name": "Search", "url": "/search/", "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" }] }
+  ]
+}

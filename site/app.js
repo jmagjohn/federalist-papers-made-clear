@@ -26,6 +26,14 @@
     initSearch();
   });
 
+  // ------------------------------------------------------------ offline support
+  // Lets the site install to a home screen and keeps opened papers readable offline.
+  if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('/sw.js').catch(function () {});
+    });
+  }
+
   // ------------------------------------------------------------ header
   function initHeader() {
     var header = $('.site-header');

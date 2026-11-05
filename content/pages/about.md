@@ -40,6 +40,13 @@ The papers also come from a society that denied basic rights to most of its peop
 
 All 85 papers have a full plain-language version, a summary, and the complete original text. We wrote them in order of importance, starting with the essays most often read, taught, and cited. Like any interpretation, they can always be improved, so corrections are welcome.
 
+## Read it like an app
+
+You can add this site to your phone's home screen and open it like an app. It opens full screen, and papers you have already read stay available when you have no signal.
+
+- **iPhone or iPad:** open the site in Safari, tap the Share button, then tap **Add to Home Screen**.
+- **Android:** open the site in Chrome, tap the menu (⋮), then tap **Install app** or **Add to Home screen**.
+
 ## Sources
 
 The original text comes from the Project Gutenberg edition of *The Federalist Papers* (EBook #1404), which is in the public domain. Paragraph numbers follow that edition. Authorship follows the standard modern attributions. Twelve essays (Nos. 49–58, 62, and 63) were claimed by both Hamilton and Madison; most historians, supported by statistical studies of word use, credit Madison.

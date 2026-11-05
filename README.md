@@ -16,6 +16,7 @@ The goal is simple: make the actual arguments behind the U.S. Constitution reada
 - **Categories**: 17 parts of the series, 13 topics (checks and balances, federalism, presidential power…), and authors
 - **Glossary** built automatically from each paper's "Words to know" box
 - **Reading tools**: text size, easy-read font (Atkinson Hyperlegible), parchment/aged/plain/night themes, read-aloud
+- **Installable app (PWA):** add it to a phone's home screen. It opens full screen, and papers you have read stay available offline
 - A summary and the full original text for **all 85 papers**, even before the plain version is written
 
 ## Deploying on Vercel
@@ -48,10 +49,15 @@ content/
   pages/*.md          # other pages (About)
 scripts/
   build.js            # static site generator (no dependencies)
-  check.js            # reading-level report
+  check.js            # reading-level and paragraph-coverage report
+  make-icons.js       # re-renders the home-screen icons (needs playwright; only if you change the mark)
   import-originals.js # one-time import of the original text
-site/                 # CSS, JS, favicon copied as-is
+site/                 # CSS, JS, icons, manifest, and service worker, copied as-is (sw.js is stamped at build)
 ```
+
+### Installable app and offline reading
+
+The site is a progressive web app. `site/manifest.webmanifest` describes it, `site/sw.js` is the service worker, and `build.js` adds the iOS home-screen tags to every page, stamps each deploy's version into the service worker, and generates the `/offline/` fallback page. Pages are fetched fresh when online and saved as they're read, so previously opened papers keep working with no signal. Each deploy replaces the old cache automatically.
 
 ### Writing a plain-language paper
 
