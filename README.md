@@ -15,7 +15,7 @@ The goal is simple: make the actual arguments behind the U.S. Constitution reada
 - **Table of contents** grouped by the series' own structure, with filters
 - **Categories**: 17 parts of the series, 13 topics (checks and balances, federalism, presidential power…), and authors
 - **Glossary** built automatically from each paper's "Words to know" box
-- **Reading tools**: text size, easy-read font (Atkinson Hyperlegible), light/sepia/dark themes, read-aloud
+- **Reading tools**: text size, easy-read font (Atkinson Hyperlegible), parchment/aged/plain/night themes, read-aloud
 - A summary and the full original text for **all 85 papers**, even before the plain version is written
 
 ## Deploying on Vercel

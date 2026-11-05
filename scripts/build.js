@@ -223,11 +223,11 @@ ${canonical}
 <meta property="og:title" content="${esc(fullTitle)}">
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#1f3a5f">
+<meta name="theme-color" content="#0a3161">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&family=Inter:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="/styles.css?v=${BUILD_ID}">
 <script>
 (function(){try{var s=JSON.parse(localStorage.getItem('fmc-settings')||'{}');var d=document.documentElement;if(s.theme)d.setAttribute('data-theme',s.theme);if(s.size)d.setAttribute('data-size',s.size);if(s.font)d.setAttribute('data-font',s.font);}catch(e){}})();
@@ -237,9 +237,10 @@ ${canonical}
 <body class="${bodyClass}">
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
+  <div class="flag-stripe" aria-hidden="true"></div>
   <div class="header-inner">
     <a class="brand" href="/" aria-label="${SITE_NAME} home">
-      <span class="brand-mark" aria-hidden="true">F</span>
+      <span class="brand-mark" aria-hidden="true">★</span>
       <span class="brand-text"><span class="brand-top">The Federalist</span><span class="brand-bottom">Made Clear</span></span>
     </a>
     <button class="icon-btn menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
@@ -296,10 +297,10 @@ ${canonical}
         <button type="button" data-set="font" data-value="easy">Easy-read</button>
       </fieldset>
       <fieldset><legend>Theme</legend>
-        <button type="button" data-set="theme" data-value="">Auto</button>
-        <button type="button" data-set="theme" data-value="light">Light</button>
-        <button type="button" data-set="theme" data-value="sepia">Sepia</button>
-        <button type="button" data-set="theme" data-value="dark">Dark</button>
+        <button type="button" data-set="theme" data-value="">Parchment</button>
+        <button type="button" data-set="theme" data-value="sepia">Aged</button>
+        <button type="button" data-set="theme" data-value="light">Plain</button>
+        <button type="button" data-set="theme" data-value="dark">Night</button>
       </fieldset>
     </div>
   </div>
@@ -322,6 +323,7 @@ ${body}
       <ul><li><a href="/about/">About this project</a></li><li><a href="/about/#how-we-adapted">How we adapted the text</a></li><li><a href="${REPO_URL}">Source on GitHub</a></li></ul>
     </div>
   </div>
+  <p class="footer-stars" aria-hidden="true">★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★</p>
   <p class="footer-note">Original text: public domain, from Project Gutenberg. Plain-language versions and commentary are an interpretation, not a replacement. When it matters, check the original.</p>
 </footer>
 </body>
@@ -448,6 +450,7 @@ function renderHome() {
     <div class="hero-inner">
       <p class="eyebrow">85 essays · 1787–1788 · Hamilton, Madison &amp; Jay</p>
       <h1>The Federalist Papers, <span>made clear.</span></h1>
+      <p class="ornament" aria-hidden="true">★★★</p>
       <p class="lede">In 1787 and 1788, three men writing as “Publius” made the case for the new U.S. Constitution. Their essays are still some of the best explanations of how American government is supposed to work. They are also hard to read. This site rewrites them in clear, modern English, without losing the argument.</p>
       <form class="hero-search" action="/search/" method="get" role="search">
         <label class="sr-only" for="hero-q">Search the Federalist Papers</label>
@@ -475,7 +478,7 @@ function renderHome() {
           <li><strong>Commentary</strong> boxes that explain background, connect ideas, and point out where the authors were wrong or controversial.</li>
           <li><strong>Words to know</strong>, collected into a <a href="/glossary/">glossary</a>.</li>
           <li><strong>Side-by-side view</strong>, so you can check any passage against the 1787 original.</li>
-          <li><strong>Reading tools</strong>: adjustable text size, an easy-read font, dark mode, and read-aloud.</li>
+          <li><strong>Reading tools</strong>: adjustable text size, an easy-read font, parchment and night themes, and read-aloud.</li>
         </ul>
       </div>
       <div class="progress-card">
